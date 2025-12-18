@@ -1,0 +1,7 @@
+img {
+  filter: sepia(100%);
+}
+img:hover,
+img:focus {
+  filter: none;
+}

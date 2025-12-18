@@ -1,0 +1,97 @@
+  body {
+  padding-left: 11em;
+    font-family:montserrat;
+    color: black;
+    background-color: #8ce06b }
+  ul.navbar {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 2em;
+    left: 1em;
+    width: 9em }
+  h1 {
+    font-family:montserrat;
+          SunSans-Regular, sans-serif }
+  ul.navbar li {
+    background: white;
+    margin: 0.5em 0;
+    padding: 0.3em;
+    border-right: 1em solid black }
+  ul.navbar a {
+    text-decoration: none }
+  a:link {
+    color: blue }
+  a:visited {
+    color: purple }
+  address {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: thin dotted }
+
+form {
+  background-color: white;
+  padding: 1em;
+  width: 420px;
+  border-radius: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  margin-top: 0.3em;
+  margin-bottom: 1em;
+  font-family: montserrat;
+}
+
+input[type="submit"] {
+  background-color: #8ce06b;
+  border: none;
+  padding: 0.5em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #6fc955;
+}
+
+input[type="radio"] {
+  margin-right: 0.3em;
+}
+
+/* ===== Système de notation par étoiles ===== */
+
+.rating {
+  direction: rtl;
+  font-size: 2em;
+  unicode-bidi: bidi-override;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  color: #ccc;
+  cursor: pointer;
+}
+
+.rating label:hover,
+.rating label:hover ~ label {
+  color: gold;
+}
+
+.rating input:checked ~ label {
+  color: gold;
+}
+
+/* ===== Captcha visible ===== */
+
+.captcha {
+  background-color: #f2f2f2;
+  padding: 0.7em;
+  border-radius: 8px;
+  margin-bottom: 1em;
+  font-weight: bold;
+}

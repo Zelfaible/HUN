@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>Contact - Hall U Need</title>
+  <link rel="stylesheet" href="HallUNeed.css">
+</head>
+
+<body>
+
+<ul class="navbar">
+  <li><a href="index.html">Accueil</a>
+  <li><a href="Restauration.html">Restauration</a>
+  <li><a href="Jeu.html">Jeu</a>
+  <li><a href="Bowling.html">Bowling</a>
+  <li><a href="Karaoké.html">Karaoké</a>
+</ul>
+
+<h1>Contact & Avis</h1>
+
+<p>Laisse-nous un message ou ton avis sur ton expérience chez Hall U Need 👇</p>
+
+<form action="https://formspree.io/f/mvzpplav" method="POST">
+
+  <input type="hidden" name="_next" value="merci.html">
+
+  <p>
+    <label>Nom :</label><br>
+    <input type="text" name="nom" required>
+  </p>
+
+  <p>
+    <label>Email :</label><br>
+    <input type="email" name="email" required>
+  </p>
+
+  <p>
+    <label>Ton message :</label><br>
+    <textarea name="message" rows="5" cols="40" required></textarea>
+  </p>
+
+<p>
+  <strong>Note globale :</strong>
+</p>
+
+<div class="rating">
+  <input type="radio" id="star5" name="note" value="5">
+  <label for="star5">★</label>
+
+  <input type="radio" id="star4" name="note" value="4">
+  <label for="star4">★</label>
+
+  <input type="radio" id="star3" name="note" value="3">
+  <label for="star3">★</label>
+
+  <input type="radio" id="star2" name="note" value="2">
+  <label for="star2">★</label>
+
+  <input type="radio" id="star1" name="note" value="1">
+  <label for="star1">★</label>
+</div>
+
+<p class="captcha">
+  <label>
+    <input type="checkbox" name="human" required>
+    Je ne suis pas un robot 🤖
+  </label>
+</p>
+
+  <p>
+    <input type="submit" value="Envoyer">
+  </p>
+
+</form>
+
+<address>Fait le 17/12/2025<br>par moi.</address>
+</form>
+</html>

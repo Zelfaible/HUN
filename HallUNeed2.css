@@ -1,0 +1,10 @@
+form {
+  background-color: #f2f2f2;
+  padding: 15px;
+  width: 400px;
+  border-radius: 10px;
+}
+
+input, textarea {
+  width: 100%;
+}
