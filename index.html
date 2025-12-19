@@ -123,13 +123,120 @@ L’objectif d’Hall U Need est de devenir une marque forte et reconnaissable e
 
 <p><strong>Après avoir ouvert un premier site à Saint André lez Lille en 2021, Hall U Need à ouvert son 2ème complexe à Carré Sénart et ouvrira un 3ème à Lyon</strong>
 
+<div id="level-box" onclick="openRewards()" style="
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #0041b9;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+">
+  Niveau : <span id="level">1</span>
+</div>
+<div id="rewards-modal" style="
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+">
+
+  <div style="
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  ">
+    <h2>🎁 Récompenses Hall U Need</h2>
+
+    <ul id="rewards-list" style="list-style: none; padding: 0;"></ul>
+
+    <button onclick="closeRewards()" style="
+      margin-top: 15px;
+      padding: 8px 15px;
+      background: #0041b9;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    ">Fermer</button>
+  </div>
+</div>
+
+  
 <!-- Signer et dater la page, c'est une question de politesse! -->
 <address>Fait le 17/12/2025<br>
   par moi.</address>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const TIME_PER_LEVEL = 30;
+  let seconds = parseInt(localStorage.getItem("timeSpent")) || 0;
+  const levelSpan = document.getElementById("level");
+
+  const rewards = [
+    { level: 2, name: "🎳 1 partie de bowling -10%" },
+    { level: 5, name: "🍔 Boisson offerte" },
+    { level: 10, name: "🎤 Session karaoké gratuite" },
+    { level: 20, name: "🎮 5 Crédit jeu offert" },
+    { level: 30, name: "👑 Gift Card Hall U Need" }
+  ];
+
+  function getLevel() {
+    return Math.floor(seconds / TIME_PER_LEVEL) + 1;
+  }
+
+  function updateLevel() {
+    seconds++;
+    localStorage.setItem("timeSpent", seconds);
+    levelSpan.textContent = getLevel();
+  }
+
+  levelSpan.textContent = getLevel();
+  setInterval(updateLevel, 1000);
+
+  window.openRewards = function () {
+    const list = document.getElementById("rewards-list");
+    list.innerHTML = "";
+
+    const currentLevel = getLevel();
+
+    rewards.forEach(r => {
+      const unlocked = currentLevel >= r.level;
+      const li = document.createElement("li");
+
+      li.style.padding = "8px";
+      li.style.margin = "6px 0";
+      li.style.borderRadius = "6px";
+      li.style.background = unlocked ? "#d4f8d4" : "#eee";
+      li.textContent = unlocked
+        ? `✅ Niveau ${r.level} : ${r.name}`
+        : `🔒 Niveau ${r.level} : Récompense verrouillée`;
+
+      list.appendChild(li);
+    });
+
+    document.getElementById("rewards-modal").style.display = "flex";
+  };
+
+  window.closeRewards = function () {
+    document.getElementById("rewards-modal").style.display = "none";
+  };
+
+});
+</script>
 
 </body>
 </html>
+
 
 
 
