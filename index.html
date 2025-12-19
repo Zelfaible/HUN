@@ -67,6 +67,49 @@ Sa devise <strong><em>« Now-Enjoy-Eat-Drink »</em></strong> invite une client�
   </div>
 </section>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const ball = document.querySelector('.ball');
+    const pins = document.querySelectorAll('.pins img');
+
+    ball.addEventListener('click', () => {
+      ball.classList.add('roll');
+      pins.forEach(pin => pin.classList.add('fall'));
+    });
+  });
+</script>
+
+<style>
+  @keyframes roll {
+    0% {
+      transform: translateX(0) rotate(0deg);
+    }
+    100% {
+      transform: translateX(calc(100vw)) rotate(1000deg);
+    }
+  }
+
+  @keyframes fall {
+    0% {
+      transform: rotate(0);
+      transform-origin: bottom right;
+    }
+    100% {
+      transform: rotate(90deg);
+    }
+  }
+
+  .ball.roll {
+    animation: roll 2s forwards ease-in-out;
+  }
+
+  .pins img.fall {
+    animation: fall 0.5s forwards ease-in-out;
+    animation-delay: 1.3s;
+    transform-origin: bottom right;
+  }
+</style>
+
 <p>Le projet Hall U Need est mené par un entrepreneur de la région, Cyril Parenna.  
 Adapté aux nouvelles tendances de société, le concept se positionne comme une locomotive de lieux de vie et un catalyseur de développement. C’est une destination.   
 L’objectif d’Hall U Need est de devenir une marque forte et reconnaissable et d’ouvrir d’autres complexes en France dans les 5 prochaines années et ensuite en Europe grâce à :
@@ -86,4 +129,5 @@ L’objectif d’Hall U Need est de devenir une marque forte et reconnaissable e
 
 </body>
 </html>
+
 
